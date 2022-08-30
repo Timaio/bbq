@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-12">
+    <p style="color: green"><%= notice %></p>
+
+    <%= render @event %>
+   
+    <div>
+      <% if current_user_can_edit?(@event) %>
+        <%= link_to "Edit this event", edit_event_path(@event) %>
+        <%= button_to "Destroy this event", @event, method: :delete, class: "btn btn-danger mt-3" %>
+      <% end %>      
+    </div>
+  </div>
+</div>
