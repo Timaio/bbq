@@ -1,5 +1,5 @@
 <%= form_with(model: user) do |form| %>
-  <%= render partial: "partials/form_errors", locals: {model: user} %>
+  <%= render partial: "partials/form_errors", locals: {resource: user} %>
 
   <div class="form-group mt-3">
     <%= form.label :name, class: "form-label" %>
