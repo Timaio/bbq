@@ -2,8 +2,9 @@
 
 <% if errors.any? %>
   <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <%= errors.size %> <%= I18n.t :error, count: errors.size %>:
     <ul>
-      <% errors.each do |error| %>
+      <% errors.each do |error| %>        
         <li><%= error.full_message %></li>
       <% end %>
     </ul>

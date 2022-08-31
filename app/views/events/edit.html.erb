@@ -1,7 +1,8 @@
-<h1>Editing event</h1>
+<h1><%= I18n.t("pages.models.event.editing") %></h1>
 
 <%= render "form", event: @event %>
 
+<%= button_to I18n.t("actions.destroy"), @event, method: :delete, class: "btn btn-danger mt-3" %>
 <br>
 
 <div>

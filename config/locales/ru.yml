@@ -1,0 +1,46 @@
+ru:
+  activerecord:
+    models:
+      user: 
+        one: 'пользователь'
+        few: 'пользователя'
+        many: 'пользователей'
+      event:
+        one: 'событие'
+        few: 'события'
+        many: 'событий'
+    attributes:
+      user:
+        email: "Email"
+        name: "Имя"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+      event:
+        title: "Название"
+        address: "Место"
+        datetime: "Время"
+        description: "Описание"
+        
+  controllers:
+    events:
+      created: "Событие создано"
+      updated: "Событие обновлено"
+      destroyed: "Событие удалено"
+  
+  error:
+    one: 'ошибка'
+    few: 'ошибки'
+    many: 'ошибок'
+
+  actions:
+    save: "Сохранить"
+    destroy: "Удалить"
+    edit: "Редактировать"
+
+  pages:
+    models:
+      event:
+        editing: "Редактировать событие"
+      user:
+        editing: "Редактировать профиль"
+
