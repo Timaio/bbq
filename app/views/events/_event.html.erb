@@ -3,15 +3,15 @@
     <%= image_tag event_img(event), class: "card-img-top" %>
     <div class="card-body">
       
-      <h5 class="card-title">
+      <h5 class="card-title text-overflow-ellipsis">
         <%= link_to event.title, event_path(event) %>
       </h5>
 
       <%= l event.datetime, format: :short %>
-      <p class="card-text"><%= event.description %></p>
+      <p class="card-text text-overflow-ellipsis"><%= event.description %></p>
       <%= link_to "https://yandex.ru/maps?text=#{event.address}" do %>
         <i class="fa-solid fa-location-dot"></i>
-        <%= event.address %>
+        <p class="text-overflow-ellipsis"><%= event.address %></p>
       <% end %>
     </div>
   </div>
