@@ -2,7 +2,7 @@
   <%= render partial: "partials/form_errors", locals: {resource: subscription} %>
 
   <% unless user_signed_in? %>
-    <div class="form-group mt-3">
+    <div class="form-group">
       <%= form.text_field :user_name, class: "form-control", 
         placeholder: t("activerecord.attributes.user.name") %>
     </div>
