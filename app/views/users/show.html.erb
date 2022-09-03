@@ -1,22 +1,29 @@
-<p style="color: green"><%= notice %></p>
+<div class="d-flex flex-start mt-4 mb-4">  
+  <%= image_tag user_avatar(@user), width: "140px", height: "140px", class: "rounded-circle me-3" %>
 
-<%= render @user %>
-
-<% if @user == current_user %>
   <div>
-    <%= link_to "Edit profile", edit_user_path(@user) %>
-  </div>
-<% end %>
+    <h2 class="mt-1">
+      <%= @user.name %>
+    </h2>
 
-<div class="row">
+    <% if @user == current_user %>
+      <%= link_to edit_user_path(@user) do %>        
+        <%= t("users.user.edit") %>
+        <i class="fa-solid fa-pencil"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row mt-5">
   <div class="col-md-12">
     <% if @user.events.any? %>
-      <h2>Organized events:</h2>
-      <div class="row">
+      <h2><%= t("activerecord.attributes.user.events") %></h2>
+      <div class="row mt-4">
         <%= render partial: "events/event", collection: @user.events  %>
       </div>
     <% else %>
-      <p>Has not organized any events yet.</p>
+      <p><%= t("activerecord.attributes.user.events_empty_state") %></p>
     <% end %>
   </div>
 </div>

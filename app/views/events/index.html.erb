@@ -1,11 +1,7 @@
-<p style="color: green"><%= notice %></p>
+<h1><%= t("activerecord.models.event.few").capitalize %></h1>
 
-<h1>Events</h1>
-
-<div id="events" class="row mb-3">
-  <% @events.each do |event| %>
-    <%= render event %>
-  <% end %>
+<div id="events" class="events row mb-5">
+  <%= render @events %>
 </div>
 
-<%= link_to "New event", new_event_path %>
+<%= link_to t("events.event.create"), new_event_path %>

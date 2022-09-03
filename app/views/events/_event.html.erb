@@ -1,12 +1,18 @@
-<div id="<%= dom_id event %>">
-</div>
+<div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+  <div class="card">  
+    <%= image_tag event_img(event), class: "card-img-top" %>
+    <div class="card-body">
+      
+      <h5 class="card-title">
+        <%= link_to event.title, event_path(event) %>
+      </h5>
 
-<div class="card" style="width: 18rem;">  
-  <%= image_tag event_img(event), class: "card-img-top" %>
-  <div class="card-body">
-    <h5 class="card-title"><%= link_to event.title, event_path(event) %></h5>
-    <small><%= l event.datetime, format: :short %></small>
-    <p class="card-text"><%= event.description %></p>
-    <%= link_to event.address, "https://yandex.ru/maps?text=#{event.address}" %>
+      <%= l event.datetime, format: :short %>
+      <p class="card-text"><%= event.description %></p>
+      <%= link_to "https://yandex.ru/maps?text=#{event.address}" do %>
+        <i class="fa-solid fa-location-dot"></i>
+        <%= event.address %>
+      <% end %>
+    </div>
   </div>
 </div>

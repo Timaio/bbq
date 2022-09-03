@@ -1,7 +1,7 @@
-<h2>Log in</h2>
+<div class="mx-auto col-lg-4 col-md-6">
+  <h2 class="text-center"><%= t("users.user.sign_in") %></h2>
 
-<div class="row mt-2">
-  <div class="col-md-6">
+  <div class="row mt-2">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group mt-3">
         <%= f.label :email, class: "form-label" %>
@@ -21,7 +21,7 @@
       <% end %>
 
       <div class="actions mt-3 mb-2">
-        <%= f.submit "Log in", class: "btn btn-primary" %>
+        <%= f.submit t("users.user.sign_in"), class: "btn btn-primary w-100" %>
       </div>
     <% end %>
 

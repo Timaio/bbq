@@ -1,0 +1,15 @@
+<%= form_for [@event, comment] do |form| %>
+  <%= render partial: "partials/form_errors", locals: {resource: comment} %>
+
+  <% unless user_signed_in? %>
+    <div class="form-group mt-3">
+      <%= form.text_field :user_name, class: "form-control", placeholder: t("comments.comment.user_name_placeholder") %>
+    </div>
+  <% end %>
+  
+  <div class="form-group mt-3">
+    <%= form.text_area :body, class: "form-control", placeholder: t("comments.comment.body_placeholder") %>
+  </div>
+
+  <%= form.submit t("comments.comment.create"), class: "btn btn-primary mt-3" %>
+<% end %>

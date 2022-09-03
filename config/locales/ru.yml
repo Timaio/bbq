@@ -1,5 +1,13 @@
 ru:
   activerecord:
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              email_taken: "занят"
+            user:
+              event_creator_cannot_subscribe: "не может подписаться на созданное им событие"
     models:
       user: 
         one: 'пользователь'
@@ -15,17 +23,38 @@ ru:
         name: "Имя"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
+        events: "Организованные события"
+        events_empty_state: "Пока не организовал ни одного события"
       event:
         title: "Название"
         address: "Место"
         datetime: "Время"
         description: "Описание"
+        user: "Организатор"
+      subscription:
+        user_email: "Email"
+        user_name: "Имя"
+      comment:
+        user_email: "Email"
+        user_name: "Имя"
+        body: "Текст комментария"
+        user: "Пользователь"
         
   controllers:
     events:
       created: "Событие создано"
       updated: "Событие обновлено"
       destroyed: "Событие удалено"
+    users:
+      updated: "Профиль обновлен"
+    comments:
+      created: "Комментарий добавлен"
+      destroyed: "Комментарий удален"
+      error: "Ошибка при добавлении комментария"
+    subscriptions:
+      created: "Вы подписались на это событие"
+      destroyed: "Вы отписались от этого события"
+      error: "Подписка/отписка не сработала"
   
   error:
     one: 'ошибка'
@@ -36,11 +65,42 @@ ru:
     save: "Сохранить"
     destroy: "Удалить"
     edit: "Редактировать"
+    update: "Обновить"
+    back: "Назад"
+    
 
-  pages:
-    models:
-      event:
-        editing: "Редактировать событие"
-      user:
-        editing: "Редактировать профиль"
+  comments:
+    comment:
+      destroy_confirm: "Вы уверены, что хотите удалить этот комментарий?"
+      body_placeholder: "Ваш комментарий..."
+      user_name_placeholder: "Ваше имя"
+      create: "Комментировать"
+      destroy: "Удалить комментарий"
+  events:
+    event:
+      destroy_confirm: "Вы уверены, что хотите удалить это событие?"
+      show: "Открыть это событие"
+      edit: "Редактировать событие"
+      create: "Новое событие"
+  subscriptions:
+    subscription:
+      destroy_confirm: "Вы уверены, что хотите отписаться от события?"
+      create: "Подписаться"
+      subscribers: "Подписались"
+      subscribers_empty_state: "Пока никто не подписался"
+      destroy: "Отписаться"
+  users:
+    user:
+      show: "Профиль"
+      edit: "Редактировать профиль"
+      destroy: "Удалить аккаунт"
+      characters_minimum: "символов минимум"
+      leave_blank_if_not_needed: "Оставьте пустым, если не хотите менять"
+      change_password: "Сменить пароль"
+      account_edit: "Редактировать аккаунт"
+      sign_up: "Зарегистрироваться"
+      sign_in: "Войти"
+      log_out: "Выход"
+      forgot_password: "Забыли пароль?"
+      send_me_reset_password_insctructions: "Прислать инструкции по сбросу пароля"
 

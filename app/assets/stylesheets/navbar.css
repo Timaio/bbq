@@ -1,0 +1,12 @@
+.navbar-logo {
+  font-size: 30px !important;
+  font-family: 'Quicksand', sans-serif;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.navbar-logo i {
+  margin-right: 3px;
+  font-size: 28px !important;
+  color: var(--bs-yellow);
+}

@@ -1,4 +1,9 @@
-<div id="<%= dom_id user %>">
-  <%= image_tag user_avatar(user) %>
-  <h1><%= user.name %></h1>
+<div class="d-flex flex-start align-items-center mt-4">  
+  <%= link_to user_path(user), class: "me-3" do %>
+    <%= image_tag user_avatar(user), width: "65px", height: "65px", class: "rounded-circle" %>
+  <% end %>
+
+  <div class="text-center">
+    <%= link_to user.name, user_path(user) %>
+  </div>
 </div>

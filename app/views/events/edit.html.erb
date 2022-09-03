@@ -1,11 +1,16 @@
-<h1><%= I18n.t("pages.models.event.editing") %></h1>
+<h1><%= t("events.event.edit") %></h1>
 
-<%= render "form", event: @event %>
+<div class="col-lg-5">
+  <%= render "form", event: @event %>
 
-<%= button_to I18n.t("actions.destroy"), @event, method: :delete, class: "btn btn-danger mt-3" %>
-<br>
+  <%= button_to t("actions.destroy"), @event, 
+    method: :delete,
+    form: {data: {turbo_confirm: t("events.event.destroy_confirm")}},
+    class: "btn btn-danger mt-3" %>
+  <br>
+</div>
 
 <div>
-  <%= link_to "Show this event", @event %> |
-  <%= link_to "Back to events", events_path %>
+  <%= link_to t("events.event.show"), @event %>
 </div>
+

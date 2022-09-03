@@ -1,0 +1,20 @@
+<span>
+  <% if subscription.user.present? %>
+    <%= render partial: "users/user", object: subscription.user %>
+  <% else %>
+    <div class="d-flex flex-start align-items-center mt-4">  
+      <%= image_tag anonymous_user_avatar, width: "65px", height: "65px", class: "rounded-circle me-3" %>
+
+      <div class="text-center">
+        <%= subscription.user_name %>
+      </div>
+    </div>
+  <% end %>
+</span>
+
+
+
+
+
+
+
