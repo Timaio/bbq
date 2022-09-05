@@ -7,15 +7,16 @@
         <%= link_to event.title, event_path(event) %>
       </h5>
 
-      <%= l event.datetime, format: :short %>
       <p class="card-text text-overflow-ellipsis"><%= event.description %></p>
       
       <%= link_to "https://yandex.ru/maps?text=#{event.address}" do %>        
-        <p class="text-overflow-ellipsis">
+        <p class="text-overflow-ellipsis mb-0">
           <i class="fa-solid fa-location-dot"></i>
           <%= event.address %>
         </p>
       <% end %>
+
+      <%= l event.datetime, format: :short %>
     </div>
   </div>
 </div>
