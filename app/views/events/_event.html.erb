@@ -1,7 +1,9 @@
 <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
   <div class="card">
-    <div class="event-img">
-      <%= image_tag event_img(event), class: "card-img-top" %>
+    <div class="event-img-box">
+      <div class="event-img card-img-top">
+        <%= image_tag event_img(event), class: "card-img-top" %>        
+      </div>
 
       <div class="event-subscribers">
         <% event.subscribers.last(5).each do |subscriber| %>
@@ -12,7 +14,7 @@
           </div>
         <% end %>
       </div>
-    </div>
+    </div>    
     
     <div class="card-body">      
       <h5 class="card-title text-overflow-ellipsis">

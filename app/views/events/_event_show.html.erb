@@ -5,9 +5,6 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-<<<<<<< HEAD
-        <h5 class="card-title"><%= event.title %></h5>
-=======
         <div class="d-flex justify-content-between w-100">
           <h5 class="card-title"><%= event.title %></h5>
 
@@ -17,7 +14,6 @@
             <% end %>     
           <% end %>
         </div>
->>>>>>> temp-branch
         
         <p class="card-text"><%= event.description %></p>
         <%= link_to "https://yandex.ru/maps?text=#{event.address}" do %>
@@ -25,11 +21,7 @@
           <%= event.address %>
         <% end %>
         
-<<<<<<< HEAD
         <p class="card-text text-muted"><%= l event.datetime, format: :short %></p>     
-=======
-        <p class="card-text text-muted"><%= l event.datetime, format: :short %></p>        
->>>>>>> temp-branch
       </div>
     </div>
   </div>
