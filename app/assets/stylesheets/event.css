@@ -1,0 +1,14 @@
+.event-subscribers {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+}
+
+.event-subscriber {
+  margin-left: -10px;
+}
+
+.event-img {
+  position: relative;
+}

@@ -1,7 +1,10 @@
-<h1><%= t("activerecord.models.event.few").capitalize %></h1>
-
-<div id="events" class="events row mb-5">
-  <%= render @events %>
+<div class="d-flex align-items-center">
+  <h1><%= t("activerecord.models.event.few").capitalize %></h1>
+  <%= link_to new_event_path, class: "ms-3 btn btn-primary h-fc", title: t("events.event.create") do %>
+    <i class="fa-solid fa-plus"></i>
+  <% end %>
 </div>
 
-<%= link_to t("events.event.create"), new_event_path %>
+<div id="events" class="events row mt-3">
+  <%= render @events %>
+</div>

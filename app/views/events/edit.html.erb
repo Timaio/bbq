@@ -1,16 +1,13 @@
 <h1><%= t("events.event.edit") %></h1>
 
-<div class="col-lg-5">
+<div class="col-md-7">
   <%= render "form", event: @event %>
 
-  <%= button_to t("actions.destroy"), @event, 
-    method: :delete,
+  <%= button_to t("actions.destroy"), @event, method: :delete,
     form: {data: {turbo_confirm: t("events.event.destroy_confirm")}},
     class: "btn btn-danger mt-3" %>
-  <br>
-</div>
 
-<div>
-  <%= link_to t("events.event.show"), @event %>
+  <div>
+    <%= link_to t("events.event.show"), @event %>
+  </div>
 </div>
-

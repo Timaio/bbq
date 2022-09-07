@@ -1,21 +1,34 @@
 <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-  <div class="card">  
-    <%= image_tag event_img(event), class: "card-img-top" %>
-    <div class="card-body">
-      
+  <div class="card">
+    <div class="event-img">
+      <%= image_tag event_img(event), class: "card-img-top" %>
+
+      <div class="event-subscribers">
+        <% event.subscribers.last(5).each do |subscriber| %>
+          <div class="event-subscriber">
+            <%= link_to subscriber do %>
+              <%= image_tag user_avatar_thumb(subscriber), width: "40", height: "40", class: "rounded-circle shadow-sm", title: subscriber.name %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="card-body">      
       <h5 class="card-title text-overflow-ellipsis">
         <%= link_to event.title, event_path(event) %>
       </h5>
 
-      <%= l event.datetime, format: :short %>
       <p class="card-text text-overflow-ellipsis"><%= event.description %></p>
       
       <%= link_to "https://yandex.ru/maps?text=#{event.address}" do %>        
-        <p class="text-overflow-ellipsis">
+        <p class="text-overflow-ellipsis mb-0">
           <i class="fa-solid fa-location-dot"></i>
           <%= event.address %>
         </p>
       <% end %>
+
+      <%= l event.datetime, format: :short %>
     </div>
   </div>
 </div>

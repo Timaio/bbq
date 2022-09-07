@@ -1,0 +1,9 @@
+<%= form_for [@event, photo], html: {multipart: true}, data: {turbo: false} do |form| %>
+  <%= render partial: "partials/form_errors", locals: {resource: photo} %>
+
+  <div class="form-group">
+    <%= form.file_field :photo, class: "form-control mt-2" %>
+  </div>
+
+  <%= form.submit t("photos.photo.create"), class: "btn btn-primary mt-3", placeholder: "W" %>
+<% end %>

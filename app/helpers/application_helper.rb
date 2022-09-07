@@ -1,13 +1,19 @@
 module ApplicationHelper
-  def user_avatar(user)
-    asset_path("user.png")
+  def user_avatar(user=nil)
+    user&.avatar&.url || asset_path("user.png")
   end
 
-  def anonymous_user_avatar
-    asset_path("user.png")
+  def user_avatar_thumb(user=nil)
+    user&.avatar&.thumb.url || asset_path("user.png")
   end
 
   def event_img(event)
-    asset_path("event.jpg")
+    photos = event.photos.persisted
+    photos.any? ? photos.sample.photo.url : asset_path("event.jpg")
+  end
+
+  def event_img_thumb(event)
+    photos = event.photos.persisted
+    photos.any? ? photos.sample.thumb.url : asset_path("event.jpg")
   end
 end
