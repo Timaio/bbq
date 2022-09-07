@@ -43,6 +43,11 @@ gem "devise"
 gem "devise-i18n"
 gem "rails-i18n"
 
+# Images
+gem "carrierwave"
+gem "rmagick"
+gem "fog-aws"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   # GET /events/1
   def show
     @new_comment = @event.comments.build(params[:comment])
-
+    @new_photo = @event.photos.build(params[:photo])
     @subscription = (current_user && @event.subscriptions.find_by(user_id: current_user.id)) || 
       @event.subscriptions.build(params[:subscription])
   end

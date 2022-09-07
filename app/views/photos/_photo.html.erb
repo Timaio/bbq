@@ -1,0 +1,19 @@
+<div class="col-lg-3">
+  <div class="card mb-3">
+    <%= link_to photo.photo.url do %>
+      <%= image_tag photo.photo.thumb.url, class: "card-img-top" %>
+    <% end %>
+
+    <div class="card-body">
+      <div class="d-flex flex-start align-items-center">  
+      <%= link_to user_path(photo.user), class: "me-2" do %>
+        <%= image_tag user_avatar_thumb(photo.user), width: "40", height: "40", class: "rounded-circle" %>
+      <% end %>
+
+      <div class="text-center">
+        <%= link_to photo.user.name, user_path(photo.user) %>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

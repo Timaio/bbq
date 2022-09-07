@@ -6,6 +6,10 @@ a {
   width: fit-content !important;
 }
 
+.h-fc {
+  height: fit-content;
+}
+
 .text-overflow-ellipsis {
   text-overflow: ellipsis;
   overflow: hidden;

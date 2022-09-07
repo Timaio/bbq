@@ -1,5 +1,5 @@
 <div class="d-flex flex-start mt-4 mb-4">  
-  <%= image_tag user_avatar(@user), width: "140px", height: "140px", class: "rounded-circle me-3" %>
+  <%= image_tag user_avatar(@user), width: "140", height: "140", class: "rounded-circle me-3" %>
 
   <div>
     <h2 class="mt-1">
@@ -7,10 +7,7 @@
     </h2>
 
     <% if @user == current_user %>
-      <%= link_to edit_user_path(@user) do %>        
-        <%= t("users.user.edit") %>
-        <i class="fa-solid fa-pencil"></i>
-      <% end %>
+      <%= link_to t("users.user.edit"), edit_user_path(@user) %>        
     <% end %>
   </div>
 </div>
