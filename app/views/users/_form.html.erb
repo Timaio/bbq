@@ -13,7 +13,7 @@
 
   <div class="form-group mt-3">
     <%= form.label :avatar, class: "form-label" %>
-    <%= image_tag(user.avatar.thumb.url) if user.avatar? %>
+    <%= image_tag user_avatar_thumb(user) %>
     <%= form.file_field :avatar, class: "form-control" %>
   </div>
 

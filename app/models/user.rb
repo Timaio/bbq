@@ -10,13 +10,13 @@ class User < ApplicationRecord
   has_many :subscriptions
   has_many :photos
 
+  has_one_attached :avatar
+
   before_validation :set_user, on: :create
 
   validates :name, presence: true
 
   after_commit :link_subscriptions, on: :create
-
-  mount_uploader :avatar, AvatarUploader
 
   private
 
