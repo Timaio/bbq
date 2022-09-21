@@ -8,8 +8,13 @@ class PhotosController < ApplicationController
     @new_photo.user = current_user
 
     if @new_photo.save
+      notify_subscribers_and_organizator(@event, @new_photo)
+
       redirect_to @event, notice: I18n.t("controllers.photos.created")
     else
+      @subscription = (current_user && @event.subscriptions.find_by(user_id: current_user.id)) ||
+        @event.subscriptions.build(params[:subscription])
+
       render "events/show", alert: I18n.t("controllers.photos.error")
     end
   end
@@ -17,13 +22,13 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   def destroy
     message = {notice: I18n.t("controller.photos.destroyed")}
-    
+
     if current_user_can_edit?(@photo)
       @photo.destroy
     else
       message = {alert: I18n.t("access_denied")}
     end
-    
+
     redirect_to @event, message
   end
 
@@ -40,5 +45,14 @@ class PhotosController < ApplicationController
     # Only allow a list of trusted parameters through.
     def photo_params
       params.fetch(:photo, {}).permit(:photo)
+    end
+
+    def notify_subscribers_and_organizator(event, photo)
+      all_emails = event.subscriptions.map(&:user_email).push(event.user.email)
+      all_emails.delete(photo.user.email)
+
+      all_emails.each do |email|
+        EventMailer.photo(event, photo, email).deliver_now
+      end
     end
 end

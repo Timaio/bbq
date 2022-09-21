@@ -1,9 +1,9 @@
-<%= form_for [@event, subscription] do |form| %>
+<%= form_for [@event, subscription], data: {turbo: false} do |form| %>
   <%= render partial: "partials/form_errors", locals: {resource: subscription} %>
 
   <% unless user_signed_in? %>
     <div class="form-group">
-      <%= form.text_field :user_name, class: "form-control", 
+      <%= form.text_field :user_name, class: "form-control",
         placeholder: t("activerecord.attributes.user.name") %>
     </div>
 
@@ -12,6 +12,6 @@
         placeholder: t("activerecord.attributes.user.email") %>
     </div>
   <% end %>
-  
+
   <%= form.submit t("subscriptions.subscription.create"), class: "btn btn-primary w-100" %>
 <% end %>

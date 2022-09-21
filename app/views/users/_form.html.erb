@@ -13,7 +13,9 @@
 
   <div class="form-group mt-3">
     <%= form.label :avatar, class: "form-label" %>
-    <%= image_tag user_avatar_thumb(user) %>
+    <div class="mb-2">
+      <%= image_tag user_avatar(user), class: "img-thumbnail" %>
+    </div>
     <%= form.file_field :avatar, class: "form-control" %>
   </div>
 

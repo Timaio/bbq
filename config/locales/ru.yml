@@ -9,7 +9,7 @@ ru:
             user:
               event_creator_cannot_subscribe: "не может подписаться на созданное им событие"
     models:
-      user: 
+      user:
         one: 'пользователь'
         few: 'пользователя'
         many: 'пользователей'
@@ -47,7 +47,7 @@ ru:
         user: "Пользователь"
       photo:
         photo: "Фотография"
-        
+
   controllers:
     events:
       created: "Событие создано"
@@ -81,7 +81,7 @@ ru:
     edit: "Редактировать"
     update: "Обновить"
     back: "Назад"
-    
+
 
   comments:
     comment:
@@ -120,3 +120,12 @@ ru:
   photos:
     photo:
       create: "Загрузить фотографию"
+
+  event_mailer:
+    comment:
+      title: "Новый комментарий к событию"
+    subscription:
+      title: "Новая подписка к вашему событию"
+    photo:
+      title: "Добавлена новая фотография к событию"
+      author: "Автор"

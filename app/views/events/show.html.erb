@@ -1,14 +1,18 @@
 <div class="row">
   <div class="col-md-9">
     <%= render partial: "events/event_show", locals: {event: @event} %>
-    
+
     <div class="row mt-4">
       <%= render partial: "photos/photo", collection: @event.photos.except(@new_photo) %>
     </div>
 
-    <%= render partial: "photos/form", locals: {photo: @new_photo || @event.photos.build} %>
+    <% if user_signed_in? %>
+      <div class="mt-4">
+        <%= render partial: "photos/form", locals: {photo: @new_photo || @event.photos.build} %>
+      </div>
+    <% end %>
 
-    <div class="mb-4">
+    <div class="mb-4 mt-4">
       <%= render partial: "comments/form", locals: {comment: @new_comment || @event.comments.build } %>
       <%= render partial: "comments/comment", collection: @event.comments.except(@new_comment) %>
     </div>
@@ -17,11 +21,11 @@
   <div class="col-md-3">
     <% unless @event.user == current_user %>
       <div class="mb-5">
-        <% if current_user_can_edit?(@subscription) && @subscription.persisted? %>
-          <%= button_to t("subscriptions.subscription.destroy"), 
-            event_subscription_path(@subscription.event, @subscription), method: :delete, 
+        <% if @subscription.persisted? && current_user_can_edit?(@subscription) %>
+          <%= button_to t("subscriptions.subscription.destroy"),
+            event_subscription_path(@subscription.event, @subscription), method: :delete,
             data: {turbo_confirm: t(".destroy_confirm")}, class: "btn btn-danger w-100" %>
-        <% else %>          
+        <% else %>
           <%= render partial: "subscriptions/form", locals: {subscription: @new_subscription || @event.subscriptions.build } %>
         <% end %>
       </div>
@@ -33,7 +37,7 @@
     <p class="h4 mt-5"><%= t("subscriptions.subscription.subscribers") %>:</p>
     <div>
       <% if @event.subscriptions.except(@subscription).any? %>
-        <%= render partial: "subscriptions/subscription", 
+        <%= render partial: "subscriptions/subscription",
           collection: @event.subscriptions.except(@subscription) %>
       <% else %>
         <%= t("subscriptions.subscription.subscribers_empty_state") %>

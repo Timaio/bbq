@@ -1,6 +1,6 @@
 module ApplicationHelper
   def user_avatar(user=nil)
-    if user&.avatar.attached?
+    if user && user.avatar.attached?
       user.avatar.variant(resize_to_fill: [400, 400])
     else
       asset_path("user.png")
@@ -8,9 +8,9 @@ module ApplicationHelper
   end
 
   def user_avatar_thumb(user=nil)
-    if user&.avatar.attached? 
+    if user && user.avatar.attached?
       user.avatar.variant(resize_to_fill: [60, 60])
-    else 
+    else
       asset_path("user.png")
     end
   end
