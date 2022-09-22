@@ -132,3 +132,10 @@ ru:
       subject: "Новая фотография к событию %{event_title}"
       title: "Добавлена новая фотография к событию"
       author: "Автор"
+
+  devise:
+    passwords:
+      edit:
+        change_password: "Сменить пароль"
+        new_password: "Новый пароль"
+        confirm_new_password: "Подтвердить новый пароль"
