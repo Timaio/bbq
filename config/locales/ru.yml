@@ -123,9 +123,12 @@ ru:
 
   event_mailer:
     comment:
+      subject: "Новый комментарий к вашему событию %{event_title}"
       title: "Новый комментарий к событию"
     subscription:
+      subject: "Новая подписка на ваше событие %{event_title}"
       title: "Новая подписка к вашему событию"
     photo:
+      subject: "Новая фотография к событию %{event_title}"
       title: "Добавлена новая фотография к событию"
       author: "Автор"

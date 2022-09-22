@@ -33,26 +33,26 @@ class PhotosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
 
-    def set_photo
-      @photo = Photo.find(params[:id])
-    end
+  def set_photo
+    @photo = Photo.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def photo_params
-      params.fetch(:photo, {}).permit(:photo)
-    end
+  # Only allow a list of trusted parameters through.
+  def photo_params
+    params.fetch(:photo, {}).permit(:photo)
+  end
 
-    def notify_subscribers_and_organizator(event, photo)
-      all_emails = event.subscriptions.map(&:user_email).push(event.user.email)
-      all_emails.delete(photo.user.email)
+  def notify_subscribers_and_organizator(event, photo)
+    all_emails = event.subscriptions.map(&:user_email).push(event.user.email)
+    all_emails.delete(photo.user.email)
 
-      all_emails.each do |email|
-        EventMailer.photo(event, photo, email).deliver_now
-      end
+    all_emails.each do |email|
+      EventMailer.photo(photo, email).deliver_now
     end
+  end
 end

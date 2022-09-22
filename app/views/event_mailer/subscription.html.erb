@@ -1,4 +1,8 @@
-<h1><%= t ".title" %> <%= @event.title %></h1>
+<h1><%= t ".title" %> <%= @subscription.event.title %></h1>
 
-<p><%= @subscriber_name %></p>
-<p><%= link_to @subscriber_email, "mail_to: #{@subscriber_email}" %></p>
+<p>
+  <%= t("activerecord.models.event.one").capitalize %>:
+  <%= link_to @subscription.event.title, event_url(@subscription.event) %>
+</p>
+
+<p><%= link_to @subscription.user_name, "mail_to: #{@subscription.user_email}" %></p>

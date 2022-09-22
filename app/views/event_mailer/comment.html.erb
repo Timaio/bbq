@@ -1,4 +1,9 @@
-<h1><%= t ".title" %> <%= @event.title %></h1>
+<h1><%= t ".title" %> <%= @comment.event.title %></h1>
+
+<p>
+  <%= t("activerecord.models.event.one").capitalize %>:
+  <%= link_to @comment.event.title, event_url(@comment.event) %>
+</p>
 
 <p><%= @comment.body %></p>
 

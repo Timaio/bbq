@@ -51,7 +51,7 @@ class CommentsController < ApplicationController
     all_emails.delete(comment.user.email) if comment.user.present?
 
     all_emails.each do |email|
-      EventMailer.comment(event, comment, email).deliver_now
+      EventMailer.comment(comment, email).deliver_now
     end
   end
 end

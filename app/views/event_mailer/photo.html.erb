@@ -1,4 +1,9 @@
-<h1><%= t ".title" %> <%= @event.title %></h1>
+<h1><%= t ".title" %> <%= @photo.event.title %></h1>
+
+<p>
+  <%= t("activerecord.models.event.one").capitalize %>:
+  <%= link_to @photo.event.title, event_url(@photo.event) %>
+</p>
 
 <p><%= image_tag @photo.photo %></p>
 <p><%= t ".author" %>: <%= @photo.user.name %></p>
