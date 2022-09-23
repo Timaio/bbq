@@ -22,8 +22,18 @@
 
 .event-img img {
   position: absolute;
-  min-height: 100%;
+  height: 100%;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
+}
+
+.card-head {
+  min-height: 200px;
+}
+
+.event-map {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
 }

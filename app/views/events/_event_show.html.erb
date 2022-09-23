@@ -1,9 +1,17 @@
 <div class="card">
-  <div class="row g-0">
-    <div class="col-md-4">
+  <div class="row g-0 card-head">
+    <div class="col-md-6">
       <%= image_tag event_img(event), class: "img-fluid rounded-start", alt: "Event image" %>
     </div>
-    <div class="col-md-8">
+
+    <div class="col-md-6">
+      <div id="map" data-address="<%= event.address %>" class="event-map">
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-0">
+    <div class="col-md-12">
       <div class="card-body">
         <div class="d-flex justify-content-between w-100">
           <h5 class="card-title"><%= event.title %></h5>
@@ -11,17 +19,19 @@
           <% if current_user_can_edit?(@event) %>
             <%= link_to edit_event_path(@event), title: t("actions.edit") do %>
               <i class="fa-solid fa-pen-to-square"></i>
-            <% end %>     
+            <% end %>
           <% end %>
         </div>
-        
+
         <p class="card-text"><%= event.description %></p>
         <%= link_to "https://yandex.ru/maps?text=#{event.address}" do %>
           <i class="fa-solid fa-location-dot"></i>
           <%= event.address %>
         <% end %>
-        
-        <p class="card-text text-muted"><%= l event.datetime, format: :short %></p>     
+
+
+
+        <p class="card-text text-muted"><%= l event.datetime, format: :short %></p>
       </div>
     </div>
   </div>
