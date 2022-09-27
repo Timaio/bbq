@@ -14,7 +14,7 @@
     <% end %>
 
     <div class="field form-group mt-3">
-      <%= f.label :password, class: "form-label" %> 
+      <%= f.label :password, class: "form-label" %>
       <% if @minimum_password_length %>
         <em><%= @minimum_password_length %> <%= t("users.user.characters_minimum") %></em>
       <% end %>
@@ -37,13 +37,8 @@
     </div>
   <% end %>
 
-<<<<<<< HEAD
-  <p><%= button_to t("users.user.destroy"), registration_path(resource_name), method: :delete, 
-    form: {data: {turbo_confirm: "Are you sure?" }}, class: "btn btn-danger" %></p>
-=======
-  <%= button_to t("users.user.destroy"), registration_path(resource_name), method: :delete, 
-    form: {data: {turbo_confirm: "Are you sure?" }}, class: "btn btn-danger mt-3 w-100" %>
->>>>>>> temp-branch
+  <%= button_to t("users.user.destroy"), registration_path(resource_name), method: :delete,
+    form: {data: {turbo_confirm: t(".delete_account_confirmitation") }}, class: "btn btn-danger mt-3 w-100" %>
 
   <%= link_to t("actions.back"), :back %>
 </div>

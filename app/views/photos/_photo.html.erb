@@ -1,11 +1,12 @@
 <div class="col-lg-3">
   <div class="card mb-3">
-    <%= link_to url_for(photo.photo) do %>
-      <%= image_tag photo.photo, class: "card-img-top" %>
+    <%= link_to url_for(photo.photo),
+      data: {lightbox: "event-photo", title: render(partial: "users/user", object: photo.user)} do %>
+        <%= image_tag photo.photo, class: "card-img-top" %>
     <% end %>
 
     <div class="card-body">
-      <div class="d-flex flex-start align-items-center">  
+      <div class="d-flex flex-start align-items-center">
       <%= link_to user_path(photo.user), class: "me-2" do %>
         <%= image_tag user_avatar_thumb(photo.user), width: "40", height: "40", class: "rounded-circle" %>
       <% end %>

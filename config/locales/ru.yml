@@ -139,3 +139,6 @@ ru:
         change_password: "Сменить пароль"
         new_password: "Новый пароль"
         confirm_new_password: "Подтвердить новый пароль"
+    registrations:
+      edit:
+        delete_account_confirmitation: "Вы уверены, что хотите удалить свой аккаунт?"
