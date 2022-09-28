@@ -1,3 +1,8 @@
+<% content_for :yandexmap do %>
+  <script src="https://api-maps.yandex.ru/2.1?apikey=c5fa7b5b-45d4-40ae-926c-f308e8c38fa7&lang=ru_RU"></script>
+  <%= javascript_include_tag "map" %>
+<% end %>
+
 <div class="card">
   <div class="row g-0 card-head">
     <div class="col-md-6">
@@ -28,8 +33,6 @@
           <i class="fa-solid fa-location-dot"></i>
           <%= event.address %>
         <% end %>
-
-
 
         <p class="card-text text-muted"><%= l event.datetime, format: :short %></p>
       </div>
