@@ -1,12 +1,12 @@
 <% content_for :yandexmap do %>
-  <script src="https://api-maps.yandex.ru/2.1?apikey=c5fa7b5b-45d4-40ae-926c-f308e8c38fa7&lang=ru_RU"></script>
-  <%= javascript_include_tag "map" %>
+  <script src="https://api-maps.yandex.ru/2.1?apikey=c5fa7b5b-45d4-40ae-926c-f308e8c38fa7&lang=ru_RU" data-turbo-track="reload"></script>
+  <%= javascript_include_tag "map", "data-turbo-track": "reload" %>
 <% end %>
 
 <div class="card">
-  <div class="row g-0 card-head">
-    <div class="col-md-6">
-      <%= image_tag event_img(event), class: "img-fluid rounded-start", alt: "Event image" %>
+  <div class="row g-0">
+    <div class="col-md-6 big-event-img-box">
+      <%= image_tag event_img(event), class: "bg-img rounded-start", alt: "Event image" %>
     </div>
 
     <div class="col-md-6">

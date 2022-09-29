@@ -2,7 +2,9 @@
   <div class="card mb-3">
     <%= link_to url_for(photo.photo),
       data: {lightbox: "event-photo", title: render(partial: "users/user", object: photo.user)} do %>
-        <%= image_tag photo.photo, class: "card-img-top" %>
+        <div class="photo-img-box">
+          <%= image_tag photo.photo, class: "card-img-top bg-img" %>
+        </div>
     <% end %>
 
     <div class="card-body">
