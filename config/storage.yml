@@ -8,8 +8,8 @@ local:
 
 yandex:
   service: S3
-  access_key_id: <%= Rails.application.credentials.dig(:yc, :access_key_id) %>
-  secret_access_key: <%= Rails.application.credentials.dig(:yc, :secret_access_key) %>
+  access_key_id: <%= Rails.application.credentials.yc.access_key_id %>
+  secret_access_key: <%= Rails.application.credentials.yc.secret_access_key %>
   region: ru-central-1
   bucket: bbq-timaio
   endpoint: "https://storage.yandexcloud.net"
