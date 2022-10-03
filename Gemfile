@@ -43,6 +43,14 @@ gem "image_processing", ">= 1.2"
 # Active Storage
 gem "aws-sdk-s3"
 
+group :development do
+  gem "capistrano", "~> 3.14"
+  gem "capistrano-rails", "~> 1.6"
+  gem "capistrano-rbenv", "~> 2.2"
+  gem "capistrano-bundler", "~> 2.0"
+  gem "capistrano-passenger", "~> 0.2.1"
+end
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
