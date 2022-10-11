@@ -29,7 +29,7 @@ gem "bootsnap", require: false
 
 # Use Sass to process CSS
 # gem "sassc-rails"
-
+gem "pundit", "~> 2.2.0"
 gem "devise"
 gem "devise-i18n"
 gem "rails-i18n"
@@ -58,7 +58,8 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem "sqlite3", "~> 1.4"
 
-  gem "dotenv-rails"
+  gem "rspec-rails", ">= 4.0"
+  gem "factory_bot_rails"
 end
 
 group :production do

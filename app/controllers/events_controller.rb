@@ -1,32 +1,39 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: :show
-  before_action :set_current_user_event, only: %i[edit update destroy]
+  before_action :set_event, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[show index]
+
+  # Pundit
+  after_action :verify_authorized
 
   # GET /events
   def index
-    @events = Event.all.order(created_at: :desc)
+    authorize Event
+    @events = policy_scope(Event).order(created_at: :desc)
   end
 
   # GET /events/1
   def show
     @new_comment = @event.comments.build(params[:comment])
-    @new_photo = @event.photos.build(params[:photo])
-    @subscription = (current_user && @event.subscriptions.find_by(user_id: current_user.id)) || 
+    @new_photo = @event.photos.build(params[:photo]) if current_user.present?
+    @subscription = (current_user && @event.subscriptions.find_by(user_id: current_user.id)) ||
       @event.subscriptions.build(params[:subscription])
   end
 
   # GET /events/new
   def new
+    authorize Event
+
     @event = current_user.events.build
   end
 
   # GET /events/1/edit
-  def edit    
+  def edit
   end
 
   # POST /events
   def create
+    authorize Event
+
     @event = current_user.events.new(event_params)
 
     if @event.save
@@ -54,11 +61,7 @@ class EventsController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_event
-    @event = Event.find(params[:id])
-  end
-
-  def set_current_user_event
-    @event = current_user.events.find(params[:id])
+    @event = authorize Event.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

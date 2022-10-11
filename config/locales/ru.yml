@@ -142,3 +142,6 @@ ru:
     registrations:
       edit:
         delete_account_confirmitation: "Вы уверены, что хотите удалить свой аккаунт?"
+
+  pundit:
+    not_authorized: "Вы не подтвердили свои права на выполнение этого действия :("

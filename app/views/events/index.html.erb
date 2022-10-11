@@ -1,8 +1,12 @@
 <div class="d-flex align-items-center">
   <h1><%= t("activerecord.models.event.few").capitalize %></h1>
-  <%= link_to new_event_path, class: "ms-3 btn btn-primary h-fc", title: t("events.event.create") do %>
-    <i class="fa-solid fa-plus"></i>
+
+  <% if policy(Event).create? %>
+    <%= link_to new_event_path, class: "ms-3 btn btn-primary h-fc", title: t("events.event.create") do %>
+      <i class="fa-solid fa-plus"></i>
+    <% end %>
   <% end %>
+
 </div>
 
 <div id="events" class="events row mt-3">

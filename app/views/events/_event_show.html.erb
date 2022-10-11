@@ -21,7 +21,7 @@
         <div class="d-flex justify-content-between w-100">
           <h5 class="card-title"><%= event.title %></h5>
 
-          <% if current_user_can_edit?(@event) %>
+          <% if policy(@event).update? %>
             <%= link_to edit_event_path(@event), title: t("actions.edit") do %>
               <i class="fa-solid fa-pen-to-square"></i>
             <% end %>
