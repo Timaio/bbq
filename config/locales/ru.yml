@@ -37,6 +37,7 @@ ru:
         datetime: "Время"
         description: "Описание"
         user: "Организатор"
+        pincode: "Пинкод"
       subscription:
         user_email: "Email"
         user_name: "Имя"
@@ -53,6 +54,8 @@ ru:
       created: "Событие создано"
       updated: "Событие обновлено"
       destroyed: "Событие удалено"
+      wrong_pincode: "Неверный пинкод"
+      pincode_entry_only: "Введите пинкод"
     users:
       updated: "Профиль обновлен"
     comments:
@@ -96,6 +99,8 @@ ru:
       show: "Открыть это событие"
       edit: "Редактировать событие"
       create: "Новое событие"
+      pincode: "Доступ по пинкоду"
+      pincode_show: "Войти"
   subscriptions:
     subscription:
       destroy_confirm: "Вы уверены, что хотите отписаться от события?"

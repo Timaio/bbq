@@ -22,6 +22,11 @@
       <%= form.datetime_select :datetime, {}, {class: "d-inline form-select w-fc"} %>
     </div>
 
+    <div class="form-group mt-3">
+      <%= form.label :pincode, class: "form-label" %>
+      <%= form.text_field :pincode, class: "form-control" %>
+    </div>
+
     <%= form.submit class: "btn btn-primary mt-3" %>
   </div>
 <% end %>

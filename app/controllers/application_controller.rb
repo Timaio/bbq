@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
     )
   end
 
+  def pundit_user
+    UserContext.new(current_user, cookies, params[:pincode])
+  end
+
   private
 
   def user_not_authorized

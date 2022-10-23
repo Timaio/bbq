@@ -11,7 +11,14 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    return true if record.pincode.blank? || user.user == record.user
+
+    if user.pincode.present? && record.pincode_correct?(user.pincode)
+      user.cookies["event_#{record.id}_pincode"] = user.pincode
+    end
+
+    cookies_pincode = user.cookies["event_#{record.id}_pincode"]
+    record.pincode_correct?(cookies_pincode)
   end
 
   def update?
@@ -29,6 +36,6 @@ class EventPolicy < ApplicationPolicy
   private
 
   def user_owns?
-    user.present? && (record.user == user)
+    user.present? && (record.user == user.user)
   end
 end
