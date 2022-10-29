@@ -8,7 +8,7 @@ class PhotosController < ApplicationController
     @new_photo.user = current_user
 
     if @new_photo.save
-      notify_subscribers_and_organizator(@event, @new_photo)
+      NewRecordNotificationJob.perform_later(@new_photo)
 
       redirect_to @event, notice: I18n.t("controllers.photos.created")
     else
@@ -45,14 +45,5 @@ class PhotosController < ApplicationController
   # Only allow a list of trusted parameters through.
   def photo_params
     params.fetch(:photo, {}).permit(:photo)
-  end
-
-  def notify_subscribers_and_organizator(event, photo)
-    all_emails = event.subscriptions.map(&:user_email).push(event.user.email)
-    all_emails.delete(photo.user.email)
-
-    all_emails.each do |email|
-      EventMailer.photo(photo, email).deliver_now
-    end
   end
 end

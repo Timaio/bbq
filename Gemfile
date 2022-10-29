@@ -43,12 +43,15 @@ gem "image_processing", ">= 1.2"
 # Active Storage
 gem "aws-sdk-s3"
 
+gem "resque"
+
 group :development do
   gem "capistrano", "~> 3.14"
   gem "capistrano-rails", "~> 1.6"
   gem "capistrano-rbenv", "~> 2.2"
   gem "capistrano-bundler", "~> 2.0"
   gem "capistrano-passenger", "~> 0.2.1"
+  gem "capistrano-resque", "~> 0.2.3", require: false
 end
 
 group :development, :test do
